@@ -17,6 +17,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh 'docker run -d -p 5000:5000 flask-demo'
+				sh 'docker logs $(docker ps -a -q --latest)'
             }
         }
     }
